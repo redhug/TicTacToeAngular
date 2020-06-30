@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+  <script src="gameController.js" charset="utf-8"></script>
+</head>
+
+<body class="background color-white center" ng-app="GameContoller">
+  <!--Turn me into an AngularJS app!-->
+  <div ng-controller="gameController" class="container">
+    <h1 class="mb40">Rock Paper Scissors!</h1>
+    <div class="row mt20 mb40">
+      <span class="textSize18 border">Player Score: {{playerScore}}</span>
+      <span class="textSize18 border">Computer Score: {{computerScore}}</span>
+      <span class="textSize18 border">Tie Score: {{tieScore}}</span>
+    </div>
+    <div class="row mt20 mb40" ng-show="showIcons">
+      <span class="border textSize18">Click on Player choice:</span>
+    </div>
+    <div class="row mt20 mb40" ng-show="showIcons">
+      <a class="color-white" ng-click="selectChoice('scissors')"><i class="fa fa-hand-scissors-o ml20" style="font-size:36px"></i></a>
+      <a class="color-white" ng-click="selectChoice('rock')"><i class="fa fa-hand-rock-o ml20" style="font-size:36px"></i></a>
+      <a class="color-white" ng-click="selectChoice('paper')"><i class="fa fa-hand-paper-o ml20" style="font-size:36px"></i></a>
+    </div>
+    <div class="row mt20 mb40" ng-show="showPlay">
+      <span class="border textSize18" >Player selected {{playerChoice}}. Click play to continue</span>
+    </div>
+    
+    <button type="button" class="color-black btn btn-light" ng-show="showPlay" ng-click="playGame()">
+      Play
+    </button>
+    <div class="row mt20 mb40" ng-show="showError">
+      <label>Oops! Having some internal trouble. Please try again.</label>
+     </div>
+    <div class="row mt20 mb40" ng-show="showResult">
+      <span class="border textSize18">Player Choice: {{playerChoice}} && Computer's Choice: {{computerChoice}}</span>
+    </div>
+    <div class="row mt20 mb40" ng-show="showResult">
+     <label>You {{result}} !!!</label>
+    </div>
+    <button type="button" class="color-black btn btn-light" ng-show="showResult" ng-click="playAgain()">
+      Play Again
+    </button>
+  </div>
+</body>
+
+</html>
